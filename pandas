@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Example data
+data = {
+    'Name': ['Abhinav', 'Swaraj', 'Ritvik', 'Pavvan', 'vishal', 'Frank'],
+    'Age': [25, 30, None, 22, 35, 27],
+    'Salary': [50000, 60000, 45000, None, 70000, 55000]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Print the initial DataFrame
+print("Initial DataFrame:")
+print(df)
+print()
+
+# Fill missing values with mean(None values)
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+df['Salary'].fillna(df['Salary'].mean(), inplace=True)
+
+# Print DataFrame after filling None values
+print("DataFrame after filling missing values:")
+print(df)
+print()
+
+# Descriptive statistics
+print("Descriptive statistics:")
+print(df.describe())
+print()
+
+# Plotting graph
+df.plot(kind='bar', x='Name', y='Salary', title='Salary Distribution')
+plt.xlabel('Name')
+plt.ylabel('Salary')
+plt.show()
